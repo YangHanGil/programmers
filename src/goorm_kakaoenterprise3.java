@@ -1,17 +1,18 @@
-
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 
 public class goorm_kakaoenterprise3 {
 
-	//¼ıÀÚÄ«µå°ÔÀÓ
+	//ìˆ«ìì¹´ë“œê²Œì„
+	
+	
 	public static void main(String[] args) throws Exception {
 		
 		/*
-		 * Å×½ºÆ® ÀÔ·Â°ª
+		 * í…ŒìŠ¤íŠ¸ ì…ë ¥ê°’
 		 * 
 		 
 		7 4
@@ -24,9 +25,9 @@ public class goorm_kakaoenterprise3 {
 		String testCase = br.readLine();
 		
 		int n = Integer.parseInt(testCase.split(" ")[0]);
-		int k = Integer.parseInt(testCase.split(" ")[0]);
+		int k = Integer.parseInt(testCase.split(" ")[1]);
 		
-		// 0 ~ n-1 ±îÁöÀÇ ¼ö¸¦ ¹è¿­¿¡ ³Ö¾îÁØ´Ù. 
+		// 0 ~ n-1 ê¹Œì§€ì˜ ìˆ˜ë¥¼ ë°°ì—´ì— ë„£ì–´ì¤€ë‹¤. 
 		int[] intArr = new int[n];
 		int cnt = 0;
 		for (int i : intArr) {
@@ -34,15 +35,59 @@ public class goorm_kakaoenterprise3 {
 			cnt++;
 		}
 		
-		// k°¹¼öÀÇ Ä«µå¸¦ ¸î¹ø »ÌÀ» ¼ö ÀÖ´ÂÁö ÆÇº°
-		
-		
-		
-		// »ÌÀº k°¹¼öÀÇ Ä«µå¸¦ nÀ¸·Î ³ª´² 0ÀÌ µÇ´ÂÁö ÆÇº°
-		
-		
+		// kê°¯ìˆ˜ì˜ ì¹´ë“œë¥¼ ëª‡ë²ˆ ë½‘ì„ ìˆ˜ ìˆëŠ”ì§€ íŒë³„
+		Combination comb = new Combination(intArr.length, k);
+        comb.combination(intArr, 0, 0, 0);
+        ArrayList<ArrayList<Integer>> result = comb.getResult();
+        
+        int res=0;
+        for (int i = 0; i < result.size(); i++) {
+        	int f=0;
+            int t =0;
+            for (int j = 0; j < result.get(i).size(); j++) {
+            	f= f+result.get(i).get(j);
+            }
+            t = (f%n==0)?1:0;
+            if(t==1) res++;
+        }
+        
+		System.out.println(res);
 		
 		br.close();
 	}
 	
+	
+}
+
+class Combination {
+    private int n;
+    private int r;
+    private int[] now; // í˜„ì¬ ì¡°í•©
+    private ArrayList<ArrayList<Integer>> result; // ëª¨ë“  ì¡°í•©
+
+    public ArrayList<ArrayList<Integer>> getResult() {
+        return result;
+    }
+
+    public Combination(int n, int r) {
+        this.n = n;
+        this.r = r;
+        this.now = new int[r];
+        this.result = new ArrayList<ArrayList<Integer>>();
+    }
+
+    public void combination(int[] arr, int depth, int index, int target) {
+        if (depth == r) {
+            ArrayList<Integer> temp = new ArrayList<>();
+            for (int i = 0; i < now.length; i++) {
+                temp.add(arr[now[i]]);
+            }
+            result.add(temp);
+            return;
+        }
+        if (target == n) return;
+        now[index] = target;
+        combination(arr, depth + 1, index + 1, target + 1);
+        combination(arr, depth, index, target + 1);
+    }
 }
