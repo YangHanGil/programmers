@@ -44,9 +44,6 @@ public class goorm_kakaoenterprise2 {
 		}
 		
 		
-		
-		
-		
 		br.close();
 	}
 	
