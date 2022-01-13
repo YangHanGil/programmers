@@ -18,7 +18,6 @@ public class goorm_kakaoenterprise3 {
 		10 3
 		
 		*
-		*
 		*/
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -36,6 +35,7 @@ public class goorm_kakaoenterprise3 {
 		}
 		
 		// k갯수의 카드를 몇번 뽑을 수 있는지 판별
+		
 		
 		
 		// 뽑은 k갯수의 카드를 n으로 나눠 0이 되는지 판별
