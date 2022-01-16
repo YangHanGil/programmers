@@ -28,22 +28,22 @@ public class goorm_kakaoenterprise3 {
 		int k = Integer.parseInt(testCase.split(" ")[1]);
 		
 		// 0 ~ n-1 까지의 수를 배열에 넣어준다. 
-		int[] intArr = new int[n];
+		long[] longArr = new long[n];
 		int cnt = 0;
-		for (int i : intArr) {
-			intArr[cnt] = cnt;
+		for (long i : longArr) {
+			longArr[cnt] = cnt;
 			cnt++;
 		}
 		
 		// k갯수의 카드를 몇번 뽑을 수 있는지 판별
-		Combination comb = new Combination(intArr.length, k);
-        comb.combination(intArr, 0, 0, 0);
-        ArrayList<ArrayList<Integer>> result = comb.getResult();
+		Combination comb = new Combination(longArr.length, k);
+        comb.combination(longArr, 0, 0, 0);
+        ArrayList<ArrayList<Long>> result = comb.getResult();
         
-        int res=0;
+        long res=0;
         for (int i = 0; i < result.size(); i++) {
-        	int f=0;
-            int t =0;
+        	long f=0;
+            long t =0;
             for (int j = 0; j < result.get(i).size(); j++) {
             	f= f+result.get(i).get(j);
             }
@@ -60,27 +60,27 @@ public class goorm_kakaoenterprise3 {
 }
 
 class Combination {
-    private int n;
-    private int r;
-    private int[] now; // 현재 조합
-    private ArrayList<ArrayList<Integer>> result; // 모든 조합
+    private long n;
+    private long r;
+    private long[] now; // 현재 조합
+    private ArrayList<ArrayList<Long>> result; // 모든 조합
 
-    public ArrayList<ArrayList<Integer>> getResult() {
+    public ArrayList<ArrayList<Long>> getResult() {
         return result;
     }
 
-    public Combination(int n, int r) {
+    public Combination(long n, int r) {
         this.n = n;
         this.r = r;
-        this.now = new int[r];
-        this.result = new ArrayList<ArrayList<Integer>>();
+        this.now = new long[r];
+        this.result = new ArrayList<ArrayList<Long>>();
     }
 
-    public void combination(int[] arr, int depth, int index, int target) {
+    public void combination(long[] arr, long depth, int index, long target) {
         if (depth == r) {
-            ArrayList<Integer> temp = new ArrayList<>();
+            ArrayList<Long> temp = new ArrayList<>();
             for (int i = 0; i < now.length; i++) {
-                temp.add(arr[now[i]]);
+                temp.add(arr[(int) now[i]]);
             }
             result.add(temp);
             return;
