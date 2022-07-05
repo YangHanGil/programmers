@@ -5,39 +5,10 @@ import java.util.*;
 public class goorm_koreanCard3 {
 	
 	/*
-    public static Scanner scanner = new Scanner(System.in);
-    
-	public static void main(String[] args) throws NumberFormatException, IOException {
-		// TODO Auto-generated method stub
-		int testCase = Integer.parseInt(scanner.nextLine());
-		HashMap<String, Integer> map = new HashMap<>();
-		map.put("a", 1);
-		map.put("e", 1);
-		map.put("i", 1);
-		map.put("o", 1);
-		map.put("u", 1);
-		
-		final List<String> n =  new ArrayList<String>();
-		
-		for (int i = 0; i < testCase; i++) {
-			String str = scanner.nextLine();
-			String str2 = "";
-			String[] strArr = str.split("");
-			int cnt=0;
-			for (int j = 0; j < strArr.length; j++) {//o
-				cnt = (map.get(strArr[j])!=null) ? cnt+1 : 0;
-				if(j==0)
-					str2 = strArr[j];
-				else if(cnt<2)
-					str2 += strArr[j];
-				
-			}
-			n.add(str2);
-		}
-		for (String str : n) {
-			System.out.println(str);
-		}
-	}
+    n개의 배열을 선언 후
+    선언 된 문자열 배열에 모음이 연달아 나올경우 첫번째 모음을 뺀 연속되는 모음 제거
+    ex) abcdefg -> abcdefg 
+    	aabcdiieou -> abcdi 
 	*/
 	
 	public static void main(String[] args) throws Exception {

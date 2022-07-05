@@ -13,6 +13,9 @@ public class goorm_koreanCard {
     
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		// TODO Auto-generated method stub
+		
+		//n 개의 배열을 선언
+		// 선언된 배열의 숫자중 중복되는 수 제거
 
 		int testCase = Integer.parseInt(scanner.nextLine());
 		
